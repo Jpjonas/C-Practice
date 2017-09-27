@@ -10,7 +10,7 @@ int main()
   //pergunta os numeros
   printf ("Primeiro numero: ");
   scanf("%d", &x);
-  printf ("Primeiro numero: ");
+  printf ("Segundo numero: ");
   scanf("%d", &y);
 
   //calcula exponencial
@@ -18,10 +18,11 @@ int main()
   while(n<y)
   {
     r = r*x;
+    n++;
   }
 
   //imprime resultado
-  printf ("%d\n",x);
-  
+  printf ("%d\n",r);
+
   return 0;
 }
