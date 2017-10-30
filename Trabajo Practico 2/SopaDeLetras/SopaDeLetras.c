@@ -1,3 +1,10 @@
+/* 
+ * File:   SopaDeLetras.c
+ * Author: Jonas Pollnow
+ *
+ * Created on October 30, 2017, 9:23 AM
+ */
+
 #include "SopaDeLetras.h"
 
 /*
@@ -11,7 +18,7 @@ int main()
   int m=0;
   while(m!=1 || m!=2 || m!=3)
   {
-    system("clear");
+    //system("clear");
     printf("Sopa de Letras\n");
     printf("1 - Jugar\n");
     printf("2 - Testear Funciones\n");
@@ -26,7 +33,7 @@ int main()
         //testearFunciones();
         break;
       case 3:
-        system("clear");
+        //system("clear");
         return 0;
     }
   }
@@ -41,22 +48,23 @@ Retorno representa como el el programa fue finalizado
 void jugar()
 {
   //Variables
-  int i, j, tamanioUniverso, numeroFilas, numeroColumnas;
-  char Universo[tamanioUniverso][100];
+  int i=0, j=0, tamanioUniverso=0, numeroFilas=0, numeroColumnas=0;
 
   //Definición del Universo
-  system("clear");
+  //system("clear");
   printf("Universo\n");
   printf("\n¿Cual es el tamaño del universo de palabras? ");
   scanf("%d",&tamanioUniverso);
+  
+  char Universo[tamanioUniverso][100];
   for(i=0;i<tamanioUniverso;i++)
   {
     printf("\nIngrese la %d palabra del universo: ", i+1);
-    scanf("%  s",Universo[i]);
+    scanf("%s",Universo[i]);
   }
 
   //Definición de la Sopa de Letras
-  system("clear");
+  //system("clear");
   printf("Sopa de Letras\n");
   printf("\n¿Cual es el número de filas de la sopa de letras? ");
   scanf("%d",&numeroFilas);
@@ -65,16 +73,22 @@ void jugar()
 
   char SopaLetras[numeroFilas][numeroColumnas];
   printf("\nIngrese la Sopa de Letras:\n");
-
-  for(i = 0; i < numeroFilas; ++i)
+  
+  for(i=0; i<numeroFilas; i++)
   {
-    printf("Fila %d\n", i+1);
-     for(j = 0; j < numeroColumnas ; ++j)
-     {
-        printf("%c\t",SopaLetras[i][j]);
-     }
-  printf("\n");
+    printf("\nIngresse la primera fila de la Sopa de Letras: ");
+    scanf("%s",SopaLetras[i]);
   }
+ 
+  
+  
+    printf("Ingresse la primera fila de la Sopa de Letras: ");
+  //for(i = 0; i < m; i++){
+  //   for(k = 0; k < m; k++){
+  //     printf("%2d", array[i][k]);    // print array.
+  //   }
+  //   printf("\n");
+  //} 
 
 
 }
