@@ -17,3 +17,6 @@ Compilación: gcc ­o programa programa.c
 Depuración: gcc ­ggdb ­o prog prog.c
 
 gcc calc.c ­o calc ­lm
+
+
+gcc -Wall SopaDeLetras.c SopaDeLetras.h -o sopadeletras
