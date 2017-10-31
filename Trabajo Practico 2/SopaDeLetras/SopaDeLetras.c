@@ -103,21 +103,20 @@ Representamos el tamaño del universo,
 jugar : void
 Retorno representa como el el programa fue finalizado
 */
-void buscarPalabras(int tamanioUniverso, int numeroFilas, int numeroColumnas, char Universo[tamanioUniverso][MAXPALABRA], 
-                    char SopaLetras[numeroFilas][numeroColumnas])
+void buscarPalabras(int tamanioUniverso, int numeroFilas, int numeroColumnas, char Universo[tamanioUniverso][MAXPALABRA], char SopaLetras[numeroFilas][numeroColumnas])
 {
     int i,j,k;
-    char palabra[MAXPALABRA];
     
     for(k=0; k<tamanioUniverso;k++)//para las palabras del universo
     {
+        char palabra[MAXPALABRA];
         strcpy(palabra, Universo[k]);
+        printf("%s",palabra);
+        
         for(i=0; i<numeroFilas; i++)
         {
             for(j=0; j<numeroColumnas; j++)
             {
-                
-                printf("%s",palabra);
                 
             }
         }
