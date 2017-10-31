@@ -35,7 +35,9 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 
 # Object Files
 OBJECTFILES= \
-	${OBJECTDIR}/SopaDeLetras.o
+	${OBJECTDIR}/BuscaDePalabras.o \
+	${OBJECTDIR}/SopaDeLetras.o \
+	${OBJECTDIR}/TesteFunciones.o
 
 
 # C Compiler Flags
@@ -62,10 +64,20 @@ ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/sopadeletras: ${OBJECTFILES}
 	${MKDIR} -p ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}
 	${LINK.c} -o ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/sopadeletras ${OBJECTFILES} ${LDLIBSOPTIONS}
 
+${OBJECTDIR}/BuscaDePalabras.o: BuscaDePalabras.c
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.c) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/BuscaDePalabras.o BuscaDePalabras.c
+
 ${OBJECTDIR}/SopaDeLetras.o: SopaDeLetras.c
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.c) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/SopaDeLetras.o SopaDeLetras.c
+
+${OBJECTDIR}/TesteFunciones.o: TesteFunciones.c
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.c) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/TesteFunciones.o TesteFunciones.c
 
 # Subprojects
 .build-subprojects:

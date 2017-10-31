@@ -52,8 +52,8 @@ void jugar()
     fflush( stdout );// mover los caracteres del bufer a la salida estandar sea esta la pantalla
     scanf("%d",&tamanioUniverso);
     getchar();//Remove \n del scanf
-    
-  
+
+
     char Universo[tamanioUniverso][MAXPALABRA];
     for(i=0; i<tamanioUniverso; i++)
     {
@@ -77,7 +77,7 @@ void jugar()
 
     char SopaLetras[numeroFilas][numeroColumnas];
     printf("\nIngrese la Sopa de Letras:\n");
-  
+
     for(i=0; i<numeroFilas; i++)
     {
         printf("\nIngresse la primera fila de la Sopa de Letras: ");
@@ -87,7 +87,7 @@ void jugar()
     }
     system("clear");
     imprimeSopaLetras(numeroFilas,numeroColumnas,SopaLetras);
- 
+
     buscarPalabras(tamanioUniverso,numeroFilas,numeroColumnas,Universo,SopaLetras);
 }
 
@@ -107,100 +107,7 @@ void imprimeSopaLetras(int numeroFilas, int numeroColumnas, char SopaLetras[nume
             printf("%c\t", SopaLetras[i][j]);
             fflush( stdout );// mover los caracteres del bufer a la salida estandar sea esta la pantalla
         }
-    } 
-    printf("\npress enter to continue...\n");
-    getchar();
-}
-
-/*
-Representamos el tamaño del universo,
-jugar : void
-Retorno representa como el el programa fue finalizado
-*/
-void buscarPalabras(int tamanioUniverso, int numeroFilas, int numeroColumnas, char Universo[tamanioUniverso][MAXPALABRA], 
-                    char SopaLetras[numeroFilas][numeroColumnas])
-{
-    int i,j,k,t;
-    
-    for(k=0; k<tamanioUniverso;k++)//para las palabras del universo
-    {
-        char palabra[MAXPALABRA];
-        strcpy(palabra, Universo[k]);
-        
-        printf("\n%s\n",palabra);
-        fflush( stdout );
-        
-        int situacion=NOPRESENTE;//Indica si la palabra esta en la sopa de letras o no
-        
-        for(i=0; i<numeroFilas; i++)
-        {
-            for(j=0; j<numeroColumnas; j++)
-            {
-                //Buscar la primera letra
-                if (palabra[0] == SopaLetras[i][j]) 
-                {
-                    //Busca la segunda letra
-                    //Hacia arriba
-                    if (palabra[1] == SopaLetras[i - 1][j]) 
-                    {
-                        situacion = PRESENTE;
-                        for (t = 0; t < strlen(palabra); t++)
-                            if (palabra[t] != SopaLetras[i - t][j])
-                                situacion=NOPRESENTE;
- 
-                        if (situacion==PRESENTE)
-                            break;
-                    }
-                    
-                    //Hacia abajo
-                   
-                    //Hacia la derecha
-                    
-                    //Hacia la izquierda
-                    
-                    //Hacia arriba-izquierda
-                    
-                    //Hacia arriba-derecha
-                    
-                    //Hacia abajo-izquierda
-                    
-                    //Hacia abajo-derecha
-                    
-
-                    if (situacion==PRESENTE)
-                        break;
-                }
-            }
-        }
     }
     printf("\npress enter to continue...\n");
     getchar();
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//fim

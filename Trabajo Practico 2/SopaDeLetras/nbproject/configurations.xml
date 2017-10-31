@@ -13,7 +13,9 @@
     <logicalFolder name="SourceFiles"
                    displayName="Source Files"
                    projectFiles="true">
+      <itemPath>BuscaDePalabras.c</itemPath>
       <itemPath>SopaDeLetras.c</itemPath>
+      <itemPath>TesteFunciones.c</itemPath>
     </logicalFolder>
     <logicalFolder name="TestFiles"
                    displayName="Test Files"
@@ -37,9 +39,13 @@
       </toolsSet>
       <compileType>
       </compileType>
+      <item path="BuscaDePalabras.c" ex="false" tool="0" flavor2="0">
+      </item>
       <item path="SopaDeLetras.c" ex="false" tool="0" flavor2="0">
       </item>
       <item path="SopaDeLetras.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="TesteFunciones.c" ex="false" tool="0" flavor2="0">
       </item>
     </conf>
     <conf name="Release" type="1">
@@ -62,9 +68,13 @@
           <developmentMode>5</developmentMode>
         </asmTool>
       </compileType>
+      <item path="BuscaDePalabras.c" ex="false" tool="0" flavor2="0">
+      </item>
       <item path="SopaDeLetras.c" ex="false" tool="0" flavor2="0">
       </item>
       <item path="SopaDeLetras.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="TesteFunciones.c" ex="false" tool="0" flavor2="0">
       </item>
     </conf>
   </confs>
