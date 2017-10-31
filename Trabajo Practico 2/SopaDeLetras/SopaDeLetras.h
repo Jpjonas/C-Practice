@@ -12,6 +12,7 @@
 //Prototipos de las funciones
 int main();
 void jugar();
-void buscarPalabras(int tamanioUniverso, int numeroFilas, int numeroColumnas, char Universo[tamanioUniverso][MAXPALABRA], char SopaLetras[numeroFilas][numeroColumnas]);
+void buscarPalabras(int tamanioUniverso, int numeroFilas, int numeroColumnas, char Universo[tamanioUniverso][MAXPALABRA], 
+                    char SopaLetras[numeroFilas][numeroColumnas]);
 void imprimeSopaLetras(int numeroFilas, int numeroColumnas, char SopaLetras[numeroFilas][numeroColumnas]);
 //void testearFunciones();
