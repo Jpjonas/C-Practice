@@ -19,7 +19,8 @@ Depuración: gcc ­ggdb ­o prog prog.c
 gcc calc.c ­o calc ­lm
 
 
-//Sopa de Letras
+Sopa de Letras:
+
 gcc -Wall -c SopaDeLetras.c BuscaDePalabras.c TesteFunciones.c
 
 gcc -o sopadeletras SopaDeLetras.o BuscaDePalabras.o TesteFunciones.o
