@@ -1,0 +1,90 @@
+camello
+elefante
+hiena
+jaguar
+jirafa
+leon
+loro
+mono
+oso
+sapo
+tigre
+tucan
+
+
+Palabra: camello
+Fila: 4 
+Columna: 12
+Forma: de arriba a abajo
+
+
+Palabra: elefante
+Fila: 14 
+Columna: 14
+Forma: de derecha a izquierda
+
+
+Palabra: hiena
+Fila: 6 
+Columna: 1
+Forma: de arriba-izquierda a abajo-derecha
+
+
+Palabra: jaguar
+Fila: 5 
+Columna: 7
+Forma: de arriba a abajo
+
+
+Palabra: jirafa
+Fila: 6 
+Columna: 10
+Forma: de derecha a izquierda
+
+
+Palabra: leon
+Fila: 8 
+Columna: 14
+Forma: de arriba-derecha a abajo-izquierda
+
+
+Palabra: loro
+Fila: 13 
+Columna: 3
+Forma: de izquierda a derecha
+
+
+Palabra: mono
+Fila: 10 
+Columna: 3
+Forma: de arriba-izquierda a abajo-derecha
+
+
+Palabra: oso
+Fila: 11 
+Columna: 13
+Forma: de arriba-derecha a abajo-izquierda
+
+
+Palabra: oso
+Fila: 13 
+Columna: 11
+Forma: de abajo-izquierda a arriba-derecha
+
+
+Palabra: sapo
+Fila: 7 
+Columna: 6
+Forma: de abajo-derecha a arriba-izquierda
+
+
+Palabra: tigre
+Fila: 1 
+Columna: 4
+Forma: de arriba-izquierda a abajo-derecha
+
+
+Palabra: tucan
+Fila: 3 
+Columna: 14
+Forma: de derecha a izquierda
