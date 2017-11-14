@@ -23,7 +23,9 @@ struct unPedido {
 struct unPedido creaPedido(int codigo, char* descripcion, int numeroUnidades, double precio){
 	struct unPedido temp;
 	temp.codigo = codigo;
-
+	temp.descripcion = descripcion;
+	temp.numeroUnidades = numeroUnidades;
+	temp.precio = precio;
 	return temp;
 }
 
@@ -48,12 +50,9 @@ void muestraPedido(struct unPedido pedido) {
  *
  */
 int agregaPedido(struct unPedido arrayDePedidos[], int codigo, char* descripcion, int numeroUnidades, double precio, int indice) {
-	//Escriba el código acá
-
 	if(indice < 10 && indice >= 0){
-		//struct unPedido temp = creaPedido(codigo,descripcion,numeroUnidades,precio);
-		//arrayDePedidos[indice] = temp;
-
+		struct unPedido temp = creaPedido(codigo,descripcion,numeroUnidades,precio);
+		arrayDePedidos[indice] = temp;
 		return 1;
 	}
 	return 0;
@@ -66,7 +65,11 @@ int agregaPedido(struct unPedido arrayDePedidos[], int codigo, char* descripcion
  *
  */
 void muestraPedidos(struct unPedido arrayDePedidos[]) {
-	//Escriba el código acá
+	for(int i=0;i<CANTIDAD_PEDIDOS;i++){
+		if(arrayDePedidos[i].codigo > 0 && arrayDePedidos[i].precio > 0.00 && arrayDePedidos[i].numeroUnidades > 0){
+			muestraPedido(arrayDePedidos[i]);
+		}
+	}
 }
 
 /* Dado un arreglo de pedidos y un código, devuelve un nuevo arreglo con aquellos
@@ -87,6 +90,14 @@ struct unPedido* buscaPedidoCodigo(struct unPedido arrayDePedidos[], int codigo)
 	//Creamos un array de 10 pedidos ya que, más de eso, no va a haber
 	arrayPedidosCodigo = malloc(sizeof(struct unPedido)*CANTIDAD_PEDIDOS);
 	//Se debe completar este código
+
+        int j=0;
+        for(int i=0; i<CANTIDAD_PEDIDOS; i++){
+            if(arrayDePedidos[i].codigo == codigo){
+                arrayPedidosCodigo[j] = arrayDePedidos[i];
+                j++;
+            }
+        }
 	return arrayPedidosCodigo;
 }
 
@@ -102,7 +113,6 @@ int main() {
 	muestraPedidos(pedidos);
 	struct unPedido* pedidosCodigo;
 	pedidosCodigo = buscaPedidoCodigo(pedidos, 11);
-	assert(pedidosCodigo[0].codigo == 11 &&
-		strcmp(pedidosCodigo[0].descripcion,"Sandwich de Pollo")==0);
+	assert(pedidosCodigo[0].codigo == 11 && strcmp(pedidosCodigo[0].descripcion,"Sandwich de Pollo")==0);
 	return 1;
 }
