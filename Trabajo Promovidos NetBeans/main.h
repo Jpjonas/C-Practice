@@ -190,7 +190,15 @@ void imprimeCarta(int carta);
  * EN TELA PARA EL JUGADOR 
  * imprimeTablero: VOID -> VOID
  * SALIDA:
- * 
- * 
+ * ====================================================                                           
+ * |     6-Cocina    |    7-Patio   |      8-Spa      |                                           
+ * ====================================================                                           
+ * |                 |    \   /     |     9-Teatro    |                                           
+ * |    14-Comedor   |      X       |=================|                                           
+ * |                 |    /   \     |     10-Salon    |                                           
+ * ====================================================                                           
+ * |  13-Habitacion  | 12-Vestibulo | 11-Observatorio |                                           
+ * |   de huespedes  |              |                 |                                           
+ * ==================================================== 
  */
 void imprimeTablero();
