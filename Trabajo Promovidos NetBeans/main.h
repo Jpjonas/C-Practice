@@ -18,7 +18,8 @@ struct jugador{
   char nombre[30];
   int habitacion;
   int *cartas;
-  int perdio; //0 -> continua en el juego. 1 -> perdio el juego
+  int cantidadeCartas;
+  int perdio;
 };
 
 //DEFINICIONES
@@ -57,5 +58,9 @@ struct jugador{
 //PROTOTIPOS Y DOCUMENTACIÓN DE LAS FUNCIONES
 
 int hacerAcusacion(int solSospechoso, int solHabitacion, int solArma, int ubicacionJugador);
+
+//void removeJugador(struct jugador* listaJugadores, int* nrJugadores, int jugador);
+
+int calculaCantidadCartas(int nrJugadores,int jugador);
 
 void imprimiCartas(struct jugador *jugadorElim);
