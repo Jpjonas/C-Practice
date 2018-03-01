@@ -23,13 +23,13 @@ struct jugador{
 };
 
 //DEFINICIONES
-#define SOSPECHOSOS 6
-#define HABITACIONES 9
-#define ARMAS 6
+#define SOSPECHOSO 1
+#define HABITACION 2
+#define ARMA 3
 #define SI 1
 #define NO 0
-#define NOGANADOR 0
-#define GANADOR 1
+#define HORARIO 0
+#define ANTIHORARIO 1
 //Sospechosos
 #define SenoritaEscarlata 0
 #define CoronelMostaza 1
@@ -57,10 +57,20 @@ struct jugador{
 
 //PROTOTIPOS Y DOCUMENTACIÓN DE LAS FUNCIONES
 
-int hacerAcusacion(int solSospechoso, int solHabitacion, int solArma, int ubicacionJugador);
-
-//void removeJugador(struct jugador* listaJugadores, int* nrJugadores, int jugador);
+int validaCantidadJugadores(int cantidadJugadores);
 
 int calculaCantidadCartas(int nrJugadores,int jugador);
 
-void imprimiCartas(struct jugador *jugadorElim);
+void preguntaDadosSuposicion(int *sospechoso,int *habitacion,int *arma);
+
+int calculaNuevaHabitacion(int direccion,int habitacionAtual, int numeroCasas);
+
+void imprimeInformacionesJugador(struct jugador *jugador);
+
+void imprimeCartasJugador(struct jugador *jugador);
+
+void imprimeCartas(int primerIndice,int ultimoIndice);
+
+void imprimeCarta(int carta);
+
+void imprimeTablero();
