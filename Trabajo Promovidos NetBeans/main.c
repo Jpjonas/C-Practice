@@ -1,6 +1,29 @@
 #include "main.h"
 
 int main() {
+    //TESTES
+    assert(validaCantidadJugadores(3) == SI);
+    assert(validaCantidadJugadores(5) == SI);
+    assert(validaCantidadJugadores(-75) == NO);
+    assert(validaCantidadJugadores(2) == NO);
+    assert(validaCantidadJugadores(7) == NO);
+    assert(validaCantidadJugadores(0) == NO);
+    
+    assert(calculaNuevaHabitacion(0,7,4) == 11);
+    assert(calculaNuevaHabitacion(0,14,6) == 11);
+    assert(calculaNuevaHabitacion(0,12,3) == 6);
+    assert(calculaNuevaHabitacion(1,7,4) == 12);
+    assert(calculaNuevaHabitacion(1,11,5) == 6);
+    assert(calculaNuevaHabitacion(1,10,1) == 9);
+    
+    assert(calculaCantidadCartas(3,2) == 6);
+    assert(calculaCantidadCartas(4,1) == 5);
+    assert(calculaCantidadCartas(4,3) == 4);
+    assert(calculaCantidadCartas(5,0) == 4);
+    assert(calculaCantidadCartas(5,4) == 3);
+    assert(calculaCantidadCartas(6,5) == 3);
+        
+    //INICIO DEL PROGRAMA Y CANTIDAD DE JUGADORES
     int cantidadeJugadores;
     do {
         system("clear");
@@ -10,6 +33,7 @@ int main() {
         scanf(" %d", &cantidadeJugadores);
     } while (validaCantidadJugadores(cantidadeJugadores) == NO);
 
+    //CRIACION DE LA LISTA DE JUGADORES
     struct jugador *listaJugadores = malloc(cantidadeJugadores * sizeof (struct jugador));
     for (int jugador = 0; jugador < cantidadeJugadores; jugador++) {
         printf(" %s %d %s", "\n¿Jugador", jugador + 1, "cual es su nombre? ");
@@ -21,7 +45,8 @@ int main() {
         listaJugadores[jugador].perdio = NO;
     }
     printf("\nJugadores registrados\n");
-
+    
+    //CARTAS AL AZAR
     int solucionSospechoso, solucionHabitacion, solucionArma;
     int *listaCartasUsadas;
     listaCartasUsadas = (int *) calloc(21, sizeof (int));
@@ -33,6 +58,7 @@ int main() {
     listaCartasUsadas[2] = solucionArma;
     printf("\nTres cartas separadas al azar como soluciones\n");
 
+    //SEPARACIÓN DE LAS CARTAS
     int cartaUsada, jugador = 0, indiceCarta = 2, contRondas = 0, carta;
     while (indiceCarta < 20) {
         int cartaSaliu = NO;
@@ -55,10 +81,12 @@ int main() {
     listaCartasUsadas = NULL;
     free(listaCartasUsadas);
     printf("\nCartas separadas para los jugadores\n");
-
+    
+    //BUCLE DE LAS JUGADAS DE CADA JUGADOR
     getchar();
     for (jugador = 0; jugador < cantidadeJugadores; jugador++) {
         if (listaJugadores[jugador].perdio == NO) {
+            //VERIFICA SI HAY SÓLO UN JUGADOR
             int jugadoresAuxPerdieron=SI;
             for(int jugadorAuxiliar=0;jugadorAuxiliar<cantidadeJugadores;jugadorAuxiliar++)
                 if((jugadorAuxiliar!=jugador) && (listaJugadores[jugadorAuxiliar].perdio==NO))
@@ -73,6 +101,7 @@ int main() {
                 while (getchar() != '\n');
                 return 0;
             }
+            //ACUSACIÓN
             int respAcusacion;
             printf(" \n%s %s", listaJugadores[jugador].nombre, "presiona enter para continuar..");
             getchar();
@@ -104,9 +133,10 @@ int main() {
                     listaJugadores[jugador].perdio = SI;
                 }
             } 
-            
+            //DESPLAZAR POR EL TABLERO
             if (respAcusacion == NO) {
                 int transportoDiagonal = NO;
+                //DIAGONALES
                 if ((listaJugadores[jugador].habitacion == Cocina) || (listaJugadores[jugador].habitacion == Spa) ||
                         (listaJugadores[jugador].habitacion == Observatorio) || (listaJugadores[jugador].habitacion == HabitacionHuespedes)) {
                     printf("\n¿Quiere transportarse a la diagonal opuesta?(1-Si/0-No)\n");
@@ -130,6 +160,7 @@ int main() {
                         }
                     }
                 }
+                //LATERALES
                 if (transportoDiagonal == NO){
                     int numeroCasas = 0, respuestaDireccion;
                     numeroCasas = rand() % 6 + 1;
@@ -139,10 +170,11 @@ int main() {
                 }
                 printf("\n\nNueva habitación: ");
                 imprimeCarta(listaJugadores[jugador].habitacion);
-
+                //SUPOCISIÓN
                 int suposicionSospechoso=0, suposicionHabitacion=0, suposicionArma=0;
                 printf("\n\n SUPOSICIÓN\n\n");
                 preguntaDadosSuposicion(&suposicionSospechoso,&suposicionHabitacion,&suposicionArma);
+                //REFUTACIÓN
                 int jugadorRefutador, tieneCartaRefutadora = NO;
                 for (jugadorRefutador = 0; jugadorRefutador < cantidadeJugadores; jugadorRefutador++) {
                     if ((jugadorRefutador != jugador) && (listaJugadores[jugadorRefutador].perdio == NO) && (tieneCartaRefutadora == NO)) {
@@ -199,29 +231,7 @@ int main() {
             }
         }
     }
-    listaJugadores = NULL;
-    free(listaJugadores);
     return 0;
-}
-
-int calculaNuevaHabitacion(int direccion,int habitacionAtual, int numeroCasas){
-    switch (direccion) 
-    {
-        int nuevahabitacion=0;
-        case HORARIO:
-            if ((habitacionAtual + numeroCasas)>14)
-                nuevahabitacion = (habitacionAtual + numeroCasas) -9;
-            else
-                nuevahabitacion = (habitacionAtual + numeroCasas);
-            break;
-        case ANTIHORARIO:
-             if((habitacionAtual - numeroCasas)<6)
-                 nuevahabitacion = (habitacionAtual - numeroCasas) +9;
-             else
-                 nuevahabitacion = (habitacionAtual - numeroCasas);
-             break;
-      return nuevahabitacion;
-    }
 }
 
 int validaCantidadJugadores(int cantidadJugadores) {
@@ -230,18 +240,38 @@ int validaCantidadJugadores(int cantidadJugadores) {
     return SI;
 }
 
-int calculaCantidadCartas(int nrJugadores, int jugador) {
-    if (nrJugadores == 3)
+int calculaNuevaHabitacion(int direccion,int habitacionAtual, int numeroHabitaciones){
+    switch (direccion) 
+    {
+        int nuevahabitacion=0;
+        case HORARIO:
+            if ((habitacionAtual + numeroHabitaciones)>14)
+                nuevahabitacion = (habitacionAtual + numeroHabitaciones) -9;
+            else
+                nuevahabitacion = (habitacionAtual + numeroHabitaciones);
+            break;
+        case ANTIHORARIO:
+             if((habitacionAtual - numeroHabitaciones)<6)
+                 nuevahabitacion = (habitacionAtual - numeroHabitaciones) +9;
+             else
+                 nuevahabitacion = (habitacionAtual - numeroHabitaciones);
+             break;
+      return nuevahabitacion;
+    }
+}
+
+int calculaCantidadCartas(int cantidadJugadores, int jugador) {
+    if (cantidadJugadores == 3)
         return 6;
-    if ((nrJugadores == 4) && ((jugador == 0) || (jugador == 1)))
+    if ((cantidadJugadores == 4) && ((jugador == 0) || (jugador == 1)))
         return 5;
-    if ((nrJugadores == 4) && ((jugador == 2) || (jugador == 3)))
+    if ((cantidadJugadores == 4) && ((jugador == 2) || (jugador == 3)))
         return 4;
-    if ((nrJugadores == 5) && ((jugador == 0) || (jugador == 1) || (jugador == 2)))
+    if ((cantidadJugadores == 5) && ((jugador == 0) || (jugador == 1) || (jugador == 2)))
         return 4;
-    if ((nrJugadores == 5) && ((jugador == 3) || (jugador == 4)))
+    if ((cantidadJugadores == 5) && ((jugador == 3) || (jugador == 4)))
         return 3;
-    if (nrJugadores == 6)
+    if (cantidadJugadores == 6)
         return 3;
     return 0;
 }
