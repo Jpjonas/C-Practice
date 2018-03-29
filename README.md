@@ -4,6 +4,8 @@ Manual de C -> http://comunidades.campusvirtualunr.edu.ar/mod/resource/view.php?
 
 Receta y Testing -> http://comunidades.campusvirtualunr.edu.ar/mod/resource/view.php?id=48968
 
+//Programación 2
+
 Practica 1 -> http://comunidades.campusvirtualunr.edu.ar/mod/resource/view.php?id=48832
 
 Practica 2 -> http://comunidades.campusvirtualunr.edu.ar/mod/resource/view.php?id=48955
@@ -18,12 +20,4 @@ Depuración: gcc ­ggdb ­o prog prog.c
 
 gcc calc.c ­o calc ­lm
 
-
-Sopa de Letras:
-
-gcc -Wall -c SopaDeLetras.c BuscaDePalabras.c TesteFunciones.c
-
-gcc -o sopadeletras SopaDeLetras.o BuscaDePalabras.o TesteFunciones.o
-
-./sopadeletras
 
