@@ -63,24 +63,20 @@ void slist_agregar_final(SList* lista, int dato) {
   assert(lista);
   assert(lista->disponible < lista->capacidad);
 
-  SNodo* arr = lista->arr;
-  size_t nuevoNodo = lista->disponible;
+  SNodo *nuevoNodo = malloc(sizeof(SNodo));
+  nuevoNodo->dato = dato;
+  nuevoNodo->sig = NULL;
 
-  lista->disponible = arr[nuevoNodo].sig;
-  arr[nuevoNodo].sig = lista->capacidad;
-  arr[nuevoNodo].dato = dato;
+  if (lista == NULL)
+    return nuevoNodo;
 
-  if (lista->primero == lista->capacidad)
-    // Si la lista está vacía actualizamos el índice del primer elemento.
-    lista->primero = nuevoNodo;
-  else {
-    // Si no está vacía, buscamos el último nodo.
-    size_t i;
-    for (i = lista->primero; lista->arr[i].sig != lista->capacidad;
-         i = lista->arr[i].sig)
-      ;
-    lista->arr[i].sig = nuevoNodo;
-  }
+  SList nodo = lista;
+  for (;nodo->sig != NULL;nodo = nodo->sig);
+  /* ahora 'nodo' apunta al ultimo elemento en la lista */
+
+  nodo->sig = nuevoNodo;
+  return lista;++
+  -52
 }
 
 void slist_recorrer(SList* lista, FuncionVisitante visit) {
@@ -88,4 +84,33 @@ void slist_recorrer(SList* lista, FuncionVisitante visit) {
 
   for (size_t i = lista->primero; i != lista->capacidad; i = lista->arr[i].sig)
     visit(lista->arr[i].dato);
+}
+
+size_t slist_longitud(SList* lista){
+  assert(lista);
+  return lista->disponible +1;
+}
+
+SList* slist_concatenar(SList* lista1, SList* lista2){
+  assert(lista1);
+  assert(lista2);
+
+  SList* nuevaLista = slist_crear(slist_longitud(lista1)+slist_longitud(lista2));
+
+  for (size_t i = lista1->primero; i != lista1->capacidad; i = lista1->arr[i].sig)
+    nuevaLista = slist_agregar_final(nuevaLista, lista1->arr[i].dato);
+  for (size_t i = lista2->primero; i != lista2->capacidad; i = lista2->arr[i].sig)
+    nuevaLista = slist_agregar_final(nuevaLista, lista2->arr[i].dato);
+
+
+
+
+  return nuevaLista;
+}
+
+SList* slist_insertar(Slist* lista, int dato, int posicion){
+  assert(lista);
+  assert(lista->disponible < lista->capacidad);
+
+
 }
