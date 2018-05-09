@@ -118,14 +118,14 @@ void slist_insertar(*SList lista, int dato, int posicion){
   assert(lista);
 
   //verficar tamano lista
+  if(slist_vacia(lista) == 1)
+    return;
 
   SNodo* nuevoNodo = malloc(sizeof(SNodo));
-  nuevoNodo->dato = dato
-
+  nuevoNodo->dato = dato;
 
   int i = 0;
-  SNodo* nodotmp = lista->arr;
-  for(;nodotmp->sig =! NULL;nodotmp = nodotmp->sig){
+  for(SNodo* nodotmp = lista->arr; nodotmp->sig =! NULL; nodotmp = nodotmp->sig){
     if(i == (posicion-1)){
       nuevoNodo->sig = nodotmp->sig;
       nodotmp->sig = nuevoNodo;

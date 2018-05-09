@@ -97,9 +97,9 @@ SList* slist_concatenar(SList* lista1, SList* lista2){
 
   SList* nuevaLista = slist_crear(slist_longitud(lista1)+slist_longitud(lista2));
 
-  for (size_t i = lista1->primero; i != lista1->capacidad; i = lista1->arr[i].sig)
+  for (int i = lista1->primero; i != lista1->capacidad; i = lista1->arr[i].sig)
     nuevaLista = slist_agregar_final(nuevaLista, lista1->arr[i].dato);
-  for (size_t i = lista2->primero; i != lista2->capacidad; i = lista2->arr[i].sig)
+  for (int i = lista2->primero; i != lista2->capacidad; i = lista2->arr[i].sig)
     nuevaLista = slist_agregar_final(nuevaLista, lista2->arr[i].dato);
 
 
@@ -112,5 +112,7 @@ SList* slist_insertar(Slist* lista, int dato, int posicion){
   assert(lista);
   assert(lista->disponible < lista->capacidad);
 
-
+  int i = 0;
+  *SNodo nodotmp = lista->arr
+  for(;)
 }
